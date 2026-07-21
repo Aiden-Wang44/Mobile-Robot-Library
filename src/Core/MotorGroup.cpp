@@ -40,11 +40,11 @@ namespace mrl
     }
     return velocities / static_cast<float>(motors_.size());
   }
-  void MotorGroup::setBrake()
+  void MotorGroup::setBrake(BrakeMode mode)
   {
     for (Motor &motor : motors_)
     {
-      motor.setBrake();
+      motor.setBrake(mode);
     }
   }
 
