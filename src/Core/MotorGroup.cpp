@@ -11,7 +11,7 @@ namespace mrl
     if (motors_.empty())
     {
 
-      throw std::invalid_argument("MotorGroup cannot be empty");
+      // throw std::invalid_argument("MotorGroup cannot be empty");
     }
   }
   void MotorGroup::setVoltage(float volts)
