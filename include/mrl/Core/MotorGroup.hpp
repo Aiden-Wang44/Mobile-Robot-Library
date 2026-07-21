@@ -14,6 +14,6 @@ namespace mrl
     void setVoltage(float volts);
     float getAveragePosition() const;
     float getAverageVelocity() const;
-    void setBrake();
+    void setBrake(BrakeMode mode);
   };
 }
