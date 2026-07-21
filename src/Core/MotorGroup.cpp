@@ -1,4 +1,4 @@
-#include "MotorGroup.hpp"
+#include "mrl/Core/MotorGroup.hpp"
 
 #include <utility>
 #include <stdexcept>
