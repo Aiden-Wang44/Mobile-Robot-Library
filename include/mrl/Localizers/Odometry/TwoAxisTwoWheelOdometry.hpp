@@ -9,6 +9,8 @@ namespace mrl
   {
     float horizontalOffset;
     float verticalOffset;
+    OdomGeometry() : horizontalOffset(0.0f), verticalOffset(0.0f) {}
+    OdomGeometry(float horizontal, float vertical) : horizontalOffset(horizontal), verticalOffset(vertical) {}
   };
   class TwoAxisTwoWheelOdometry : public OdometryModel
   {
