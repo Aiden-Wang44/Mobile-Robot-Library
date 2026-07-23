@@ -17,10 +17,10 @@ namespace mrl
     const float dH = horizontalDistance - previousHorizontalTrackerPositionValue_;
     const float dV = verticalDistance - previousVerticalTrackerPositionValue_;
     const float dTheta = imuHeading - previousIMUHeading_;
-    DeltaPose deltaPose = {
+    DeltaPose deltaPose = DeltaPose(
         dH - geometry_.horizontalOffset * dTheta,
         dV - geometry_.verticalOffset * dTheta,
-        dTheta};
+        dTheta);
     previousHorizontalTrackerPositionValue_ = horizontalDistance;
     previousVerticalTrackerPositionValue_ = verticalDistance;
     previousIMUHeading_ = imuHeading;

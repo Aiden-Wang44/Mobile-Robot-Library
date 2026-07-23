@@ -19,7 +19,7 @@ namespace mrl
   }
   void SimpleLocalizer::reset()
   {
-    pose_ = Pose{0.0f, 0.0f, 0.0f};
+    pose_ = Pose(0.0f, 0.0f, 0.0f);
   }
   void SimpleLocalizer::update()
   {
