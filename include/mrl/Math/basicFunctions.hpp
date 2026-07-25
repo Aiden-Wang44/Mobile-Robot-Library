@@ -1,21 +1,24 @@
 #pragma once
-inline float sign(float input)
+namespace mrl
 {
-  return input < 0.0f ? -1.0f : 1.0f;
-}
+  inline float sign(float input)
+  {
+    return input < 0.0f ? -1.0f : 1.0f;
+  }
 
-inline float clamp(float value, float maximum, float minimum)
-{
-  if (value > maximum)
+  inline float clamp(float value, float maximum, float minimum)
   {
-    return maximum;
-  }
-  else if (value < minimum)
-  {
-    return minimum;
-  }
-  else
-  {
-    return value;
+    if (value > maximum)
+    {
+      return maximum;
+    }
+    else if (value < minimum)
+    {
+      return minimum;
+    }
+    else
+    {
+      return value;
+    }
   }
 }
