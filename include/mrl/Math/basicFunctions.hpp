@@ -8,13 +8,13 @@ namespace mrl
 
   inline float clamp(float value, float maximum, float minimum)
   {
-    if (value > maximum)
+    if (std::fabs(value) > maximum)
     {
-      return maximum;
+      return maximum * sign(value);
     }
-    else if (value < minimum)
+    else if (std::fabs(value) < minimum)
     {
-      return minimum;
+      return minimum * sign(value);
     }
     else
     {
