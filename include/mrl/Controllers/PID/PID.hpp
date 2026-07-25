@@ -15,7 +15,7 @@ namespace mrl
 
     float IMax = 0.0f;
     float IRange = 0.0f;
-    float Drange = 0.0f;
+    float DRange = 0.0f;
     float DMax = 0.0f;
 
     float errorTolerance;
@@ -24,6 +24,10 @@ namespace mrl
     float settleTime;
     float stuckTime;
     float jammedThreshold;
+    PIDConfig() = default;
+    PIDConfig(float kp_, float ki_, float kd_) : kp(kp_), ki(ki_), kd(kd_)
+    {
+    }
   };
 
   class PID : public Controller
@@ -56,5 +60,8 @@ namespace mrl
     float getError() const override;
     bool targetArrived() const override;
     void computeMaxIntegral();
+    void setIDLimiters(float IMax_, float IRange, float DMax_, float DRange_);
+    void setTolerance(float errorTolerance_, float DTolerance_);
+    void setTimeConfig(float settleTime_, float stuckTime_, float jammedThreshold_);
   };
 }

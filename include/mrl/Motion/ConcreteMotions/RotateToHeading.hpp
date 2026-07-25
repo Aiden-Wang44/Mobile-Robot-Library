@@ -10,6 +10,8 @@ namespace mrl
   {
     float maxPower_ = 0.0f;
     float minPower_ = 0.0f;
+    RotationLimits() = default;
+    RotationLimits(float maxPower, float minPower) : maxPower_(maxPower), minPower_(minPower) {}
   };
   class RotateToHeading : public MotionController
   {

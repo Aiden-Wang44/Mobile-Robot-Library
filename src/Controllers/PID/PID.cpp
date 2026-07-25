@@ -113,5 +113,23 @@ namespace mrl
   {
     return settled_;
   }
+  void PID::setIDLimiters(float IMax_, float IRange_, float DMax_, float DRange_)
+  {
+    config_.IMax = IMax_;
+    config_.IRange = IRange_;
+    config_.DMax = DMax_;
+    config_.DRange = DRange_;
+  }
+  void PID::setTolerance(float errorTolerance_, float DTolerance_)
+  {
+    config_.errorTolerance = errorTolerance_;
+    config_.DTolerance = DTolerance_;
+  }
+  void PID::setTimeConfig(float settleTime_, float stuckTime_, float jammedThreshold_)
+  {
+    config_.settleTime = settleTime_;
+    config_.stuckTime = stuckTime_;
+    config_.jammedThreshold = jammedThreshold_;
+  }
 
 }
