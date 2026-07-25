@@ -7,6 +7,7 @@ namespace mrl
   }
   void RotateToHeading::update()
   {
+    localizer_.update();
     Pose p = localizer_.getPose();
     controller_.update(p.heading);
     float output = controller_.getOutput();
