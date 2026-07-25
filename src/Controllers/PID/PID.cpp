@@ -19,7 +19,7 @@ namespace mrl
   {
     reset();
     target_ = target;
-    }
+  }
   void PID::reset()
   {
     firstIter_ = true;
@@ -83,15 +83,15 @@ namespace mrl
     {
       errorInt_ += errorCurr_;
 
-      errorInt_ = clamp(errorInt_, -maxIntegral_, maxIntegral_);
+      errorInt_ = mrl::clamp(errorInt_, -maxIntegral_, maxIntegral_);
     }
-    if ((sign(errorInt_) != sign(errorCurr_)) || (std::fabs(errorCurr_) <= config_.errorTolerance))
+    if ((mrl::sign(errorInt_) != mrl::sign(errorCurr_)) || (std::fabs(errorCurr_) <= config_.errorTolerance))
     {
       errorInt_ = 0.0f;
     }
     I_ = errorInt_ * config_.ki;
     D_ = errorDer_ * config_.kd;
-    if (stuckTimer_.getTime() >= config_.stuckTime && fabs(errorCurr_ - errorPrev_) < config_.jammedThreshold)
+    if (stuckTimer_.getTime() >= config_.stuckTime && std::fabs(errorCurr_ - errorPrev_) < config_.jammedThreshold)
     {
       settled_ = true;
     }

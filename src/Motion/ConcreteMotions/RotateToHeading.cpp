@@ -10,7 +10,7 @@ namespace mrl
     Pose p = localizer_.getPose();
     controller_.update(p.heading);
     float output = controller_.getOutput();
-    output = clamp(output, rotationLimits_.maxPower_, rotationLimits_.minPower_);
+    output = mrl::clamp(output, rotationLimits_.maxPower_, rotationLimits_.minPower_);
     chassis_.drive(0.0f, 0.0f, output);
   }
   void RotateToHeading::setTarget(float target)
