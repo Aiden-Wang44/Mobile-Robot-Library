@@ -22,6 +22,13 @@ namespace mrl
       motor.setVoltage(volts);
     }
   }
+  void MotorGroup::setVelocity(float velocity)
+  {
+    for (Motor &motor : motors_)
+    {
+      motor.setVelocity(velocity);
+    }
+  }
   float MotorGroup::getAveragePosition() const
   {
     float positions = 0.0f;

@@ -12,6 +12,7 @@ namespace mrl
   public:
     explicit MotorGroup(std::vector<std::reference_wrapper<Motor>> motors);
     void setVoltage(float volts);
+    void setVelocity(float velocity);
     float getAveragePosition() const;
     float getAverageVelocity() const;
     void setBrake(BrakeMode mode);

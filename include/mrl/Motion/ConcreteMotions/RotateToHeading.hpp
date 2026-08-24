@@ -24,7 +24,7 @@ namespace mrl
   public:
     RotateToHeading(Controller &controller, Localizer &localizer, Chassis &chassis, RotationLimits &rotationlimits);
     void update() override;
-    void setTarget(float target) override;
+    void setTarget(float target);
     bool isFinished() const override;
     void reset() override;
   };

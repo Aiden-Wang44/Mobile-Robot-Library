@@ -12,4 +12,13 @@ namespace mrl
     }
     return angle - PI;
   }
+  inline float sinc(float x)
+  {
+    if (std::fabs(x) < 0.001f)
+    {
+      return 1.0f;
+    }
+
+    return std::sin(x) / x;
+  }
 }
