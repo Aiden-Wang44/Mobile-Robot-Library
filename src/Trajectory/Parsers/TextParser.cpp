@@ -6,6 +6,7 @@
 #include <cstdlib>
 namespace mrl
 {
+  TextParser::TextParser() {}
   Trajectory TextParser::parse(const char *filePath) const
   {
     std::ifstream file(filePath);
