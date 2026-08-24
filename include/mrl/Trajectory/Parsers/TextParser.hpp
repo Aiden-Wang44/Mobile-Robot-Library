@@ -6,6 +6,6 @@ namespace mrl
   {
   public:
     TextParser();
-    Trajectory parse(const char *filePath) const override;
+    Trajectory parse(const char *text) const override;
   };
 }
