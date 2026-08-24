@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cstdlib>
 namespace mrl
 {
   Trajectory TextParser::parse(const char *filePath) const
@@ -26,17 +27,17 @@ namespace mrl
       float linearVelocity;
       float angularVelocity;
       std::getline(lineStream, value, ',');
-      time = std::stof(value);
+      time = std::strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      x = std::stof(value);
+      x = std::strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      y = std::stof(value);
+      y = std::strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      heading = std::stof(value);
+      heading = std::strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      linearVelocity = std::stof(value);
+      linearVelocity = std::strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      angularVelocity = std::stof(value);
+      angularVelocity = std::strtof(value.c_str(), nullptr);
       points.emplace_back(time, Pose(x, y, heading), linearVelocity, angularVelocity);
     }
     return Trajectory(points);
