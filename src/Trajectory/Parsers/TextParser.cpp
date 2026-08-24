@@ -4,12 +4,18 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 namespace mrl
 {
   TextParser::TextParser() {}
   Trajectory TextParser::parse(const char *filePath) const
   {
     std::ifstream file(filePath);
+    if (!file.is_open())
+    {
+      std::cout << "FAILED TO OPEN: " << filePath << std::endl;
+      return Trajectory({});
+    }
     std::vector<TrajectoryPoint> points;
     std::string line;
     std::getline(file, line);
