@@ -16,8 +16,9 @@ namespace mrl
     float globalErrorX = target.pose_.x - p.x;
     float globalErrorY = target.pose_.y - p.y;
     float globalErrorHeading = target.pose_.heading - p.heading;
-    float localErrorX = globalErrorX * cos(p.heading) + globalErrorY * sin(p.heading);
-    float localErrorY = globalErrorY * cos(p.heading) - globalErrorX * sin(p.heading);
+    float localErrorX = globalErrorY * cos(p.heading) - globalErrorX * sin(p.heading);
+
+    float localErrorY = globalErrorX * cos(p.heading) + globalErrorY * sin(p.heading);
     float localErrorHeading = normalizeAngle(globalErrorHeading);
     float vd = target.linearVelocity_;
     float wd = target.angularVelocity_;
