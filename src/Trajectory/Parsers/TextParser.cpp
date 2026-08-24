@@ -27,17 +27,17 @@ namespace mrl
       float linearVelocity;
       float angularVelocity;
       std::getline(lineStream, value, ',');
-      time = std::strtof(value.c_str(), nullptr);
+      time = strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      x = std::strtof(value.c_str(), nullptr);
+      x = strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      y = std::strtof(value.c_str(), nullptr);
+      y = strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      heading = std::strtof(value.c_str(), nullptr);
+      heading = strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      linearVelocity = std::strtof(value.c_str(), nullptr);
+      linearVelocity = strtof(value.c_str(), nullptr);
       std::getline(lineStream, value, ',');
-      angularVelocity = std::strtof(value.c_str(), nullptr);
+      angularVelocity = strtof(value.c_str(), nullptr);
       points.emplace_back(time, Pose(x, y, heading), linearVelocity, angularVelocity);
     }
     return Trajectory(points);
