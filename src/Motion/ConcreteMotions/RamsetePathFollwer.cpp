@@ -15,17 +15,27 @@ namespace mrl
     Pose p = localizer_.getPose();
     float globalErrorX = target.pose_.x - p.x;
     float globalErrorY = target.pose_.y - p.y;
-    float globalErrorHeading = target.pose_.heading - p.heading;
-    float localErrorX = globalErrorY * cos(p.heading) - globalErrorX * sin(p.heading);
 
-    float localErrorY = globalErrorX * cos(p.heading) + globalErrorY * sin(p.heading);
-    float localErrorHeading = normalizeAngle(globalErrorHeading);
+    float localErrorY =
+        -globalErrorX * sin(p.heading) +
+        globalErrorY * cos(p.heading);
+
+    float localErrorX =
+        globalErrorX * cos(p.heading) +
+        globalErrorY * sin(p.heading);
+
+    float localErrorHeading =
+        normalizeAngle(target.pose_.heading - p.heading);
     float vd = target.linearVelocity_;
     float wd = target.angularVelocity_;
-    float k = 2.0f * ramseteParameters_.zeta_ * sqrt(wd * wd + ramseteParameters_.beta_ * vd * vd);
-    float v = vd * cos(localErrorHeading) + k * localErrorX;
-    float w = wd + k * localErrorHeading + ramseteParameters_.beta_ * vd * sinc(localErrorHeading) * localErrorY;
+    float k =
+        2.0f * ramseteParameters_.zeta_ * sqrt(wd * wd + ramseteParameters_.beta_ * vd * vd);
 
+    float v =
+        vd * cos(localErrorHeading) + k * localErrorY;
+
+    float w =
+        wd + k * localErrorHeading - ramseteParameters_.beta_ * vd * sinc(localErrorHeading) * localErrorX;
     chassis_.driveVelocity(v, 0.0f, w);
     if (elapsedTime >= trajectory_->getDuration())
     {
