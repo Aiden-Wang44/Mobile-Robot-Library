@@ -10,7 +10,7 @@ None
 
 Clone the repository:
 
-git clone git@github.com:Aiden-Wang44/path-planner.git
+git@github.com:Aiden-Wang44/Mobile-Robot-Library.git
 
 Or:
 
