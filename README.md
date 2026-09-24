@@ -22,7 +22,10 @@ git commit -m "added submodule"
 
 git push origin main
 
-###How to use
+### How to use
 
 This library contains hardware level interfaces that must be implemented in your project to use the concrete classes for odometry, localization etc. The Core folder contains interfaces for motors, motorgroups and chassis.
-After implementing a concrete motor class, create motor groups. Then, you can either use one of the drivetrain concrete classes provided or write your own. 
+
+1. Implement a concrete motor class for your platform
+2. Create relevant motor groups
+3. Either create an object of the provided drivetrain classes, or write one.
