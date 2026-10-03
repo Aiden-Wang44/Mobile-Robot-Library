@@ -1,6 +1,9 @@
 #pragma once
 #include "mrl/Core/Chassis/Chassis.hpp"
 #include "mrl/Core/MotorGroup.hpp"
+//All math is unit agnostic at the library level
+//Angles should be in radians with CCW being positive
+//Coordinate convention is positive Y axis is 0 radians
 namespace mrl
 {
   class TankDrive : public Chassis

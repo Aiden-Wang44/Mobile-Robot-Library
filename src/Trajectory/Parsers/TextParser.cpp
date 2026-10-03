@@ -16,7 +16,7 @@ namespace mrl
     std::vector<TrajectoryPoint> points;
     std::string line;
 
-    // Skip CSV header
+    // Skip header
     std::getline(file, line);
 
     while (std::getline(file, line))

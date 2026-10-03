@@ -1,5 +1,7 @@
 #include "mrl/Motion/ConcreteMotions/RamsetePathFollower.hpp"
 #include "mrl/Math/Angles.hpp"
+//Ramsete equations differ from standard textbook control equations
+//due to the library conention being local positive y-axis being forward
 namespace mrl
 {
   RamsetePathFollower::RamsetePathFollower(Localizer &localizer, Chassis &chassis, const Trajectory &trajectory, Timer &timer, RamseteParameters &ramseteParameters) : localizer_(localizer), chassis_(chassis), trajectory_(&trajectory), timer_(timer), ramseteParameters_(ramseteParameters) {}

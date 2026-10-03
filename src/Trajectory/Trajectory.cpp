@@ -1,5 +1,6 @@
 #include "mrl/Trajectory/Trajectory.hpp"
 #include "mrl/Math/Angles.hpp"
+//Uses linear interpolation for time based sampling
 namespace mrl
 {
   Trajectory::Trajectory(const std::vector<TrajectoryPoint> &points) : points_(points) {}

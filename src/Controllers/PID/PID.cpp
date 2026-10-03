@@ -67,6 +67,7 @@ namespace mrl
     errorCurr_ = errorFunction_(target_, input);
 
     P_ = config_.kp * errorCurr_;
+//checks for first iteration to prevent erroneus initial valus
     if (firstIter_)
     {
       firstIter_ = false;
@@ -85,6 +86,7 @@ namespace mrl
 
       errorInt_ = mrl::clamp(errorInt_, -maxIntegral_, maxIntegral_);
     }
+//Prevents integral use when the current value passes the target range
     if ((mrl::sign(errorInt_) != mrl::sign(errorCurr_)) || (std::fabs(errorCurr_) <= config_.errorTolerance))
     {
       errorInt_ = 0.0f;
@@ -95,6 +97,7 @@ namespace mrl
     {
       settled_ = true;
     }
+//Derivative based settling to ensure a near stable exit
     if (std::fabs(errorCurr_) <= config_.errorTolerance && std::fabs(D_) <= config_.DTolerance)
     {
       if (convergeTimer_.getTime() >= config_.settleTime)

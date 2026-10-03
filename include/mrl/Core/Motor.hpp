@@ -1,5 +1,8 @@
 #pragma once
-
+//Arbitrary brake modes that can be implemented in any way or ignored
+//Coast corresponds to no electronic or physical braking
+//Brake corresponds to electronic braking
+//Hold corresponds to braking intended to hold motor position
 namespace mrl
 {
   enum class BrakeMode

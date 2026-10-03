@@ -21,6 +21,7 @@ namespace mrl
   {
     pose_ = Pose(0.0f, 0.0f, 0.0f);
   }
+  //Localization using linear approximation
   void SimpleLocalizer::update()
   {
     DeltaPose delta = odometry_.update();

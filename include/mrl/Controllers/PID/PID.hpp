@@ -4,6 +4,8 @@
 #include "mrl/Utilities/Timer/Timer.hpp"
 #include <cmath>
 #include <functional>
+//Constructors are explicitly defined for compatibility with platforms 
+//that do not support aggregate initialization
 namespace mrl
 {
   using ErrorFunction = float (*)(float, float);
@@ -13,6 +15,8 @@ namespace mrl
     float ki = 0.0f;
     float kd = 0.0f;
 
+//Optional custom clamping for I and D term to increase stability 
+//and smoothens convergence
     float IMax = 0.0f;
     float IRange = 0.0f;
     float DRange = 0.0f;

@@ -2,6 +2,7 @@
 
 #include <utility>
 #include <stdexcept>
+//std except is not used in the library due to some platforms not supporting exceptions during runtime
 namespace mrl
 {
 
